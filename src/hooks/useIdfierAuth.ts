@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { IdfierQRCode } from "@/lib/services/IdfierQRCode";
 import { useIdfier } from "./useIdfier";
 
@@ -14,10 +15,18 @@ export interface UserData {
 }
 
 export function useIdfierAuth() {
+  const router = useRouter();
   const [userData, setUserData] = useState<UserData | null>(null);
   const [showIdfierLogin, setShowIdfierLogin] = useState(false);
   const [idfierStatus, setIdfierStatus] = useState<
-    "idle" | "loading" | "pending" | "started" | "scanned" | "success" | "error"
+    | "idle"
+    | "loading"
+    | "pending"
+    | "started"
+    | "scanned"
+    | "success"
+    | "error"
+    | "denied"
   >("idle");
   const [referenceId, setReferenceId] = useState<string | null>(null);
   const [deepLink, setDeepLink] = useState<string | null>(null);
@@ -78,6 +87,19 @@ export function useIdfierAuth() {
     };
   }, []);
 
+  // Handle denied status redirect
+  useEffect(() => {
+    if (idfierStatus === "denied") {
+      const timer = setTimeout(() => {
+        setShowIdfierLogin(false);
+        setIdfierStatus("idle");
+        router.push("/");
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [idfierStatus, router]);
+
   const handleIdfierLogin = useCallback(async () => {
     // Cleanup any existing polling
     if (cleanupPollingRef.current) {
@@ -116,6 +138,8 @@ export function useIdfierAuth() {
               setIdfierStatus("scanned");
             } else if (status === "pending") {
               setIdfierStatus("pending");
+            } else if (status === "denied") {
+              setIdfierStatus("denied");
             }
           },
           (error) => {

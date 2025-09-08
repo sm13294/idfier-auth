@@ -125,6 +125,7 @@ export const useIdfier = () => {
           | "approved"
           | "expired"
           | "failed"
+          | "denied"
       ) => void,
       onError?: (error: string) => void,
       interval: number = 2000, // 2 seconds for more responsive UI
@@ -170,6 +171,12 @@ export const useIdfier = () => {
             result.session.status === "failed"
           ) {
             onError?.("Session expired or failed");
+            return;
+          }
+
+          // Check for denied status (if it exists in the response)
+          if ((result.session.status as any) === "denied") {
+            onStatusChange?.("denied");
             return;
           }
 

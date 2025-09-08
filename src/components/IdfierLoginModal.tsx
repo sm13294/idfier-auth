@@ -12,7 +12,8 @@ interface IdfierLoginModalProps {
     | "started"
     | "scanned"
     | "success"
-    | "error";
+    | "error"
+    | "denied";
   currentQRData: string;
   qrCodeData: {
     qrReferenceSecret: string;
@@ -225,6 +226,35 @@ export default function IdfierLoginModal({
               >
                 Try Again
               </button>
+            </>
+          )}
+
+          {status === "denied" && (
+            <>
+              <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
+                <svg
+                  className="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900">Access Denied</h3>
+              <p className="text-gray-600 text-center">
+                Authentication was denied.
+                <br />
+                Redirecting to home page in 2 seconds...
+              </p>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="bg-gradient-to-r from-red-500 to-red-600 h-2 rounded-full animate-pulse"></div>
+              </div>
             </>
           )}
         </div>
