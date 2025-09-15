@@ -14,7 +14,6 @@ export default function Home() {
     currentQRData,
     qrCodeData,
     apiError,
-    qrContainerRef,
     handleIdfierLogin,
     handleCloseModal,
     handleLogout,
@@ -31,9 +30,8 @@ export default function Home() {
       </div>
 
       <div
-        className={`w-full relative z-10 ${
-          userData ? "max-w-6xl" : "max-w-md"
-        }`}
+        className={`w-full relative z-10 ${userData ? "max-w-6xl" : "max-w-md"
+          }`}
       >
         {!userData ? (
           <>

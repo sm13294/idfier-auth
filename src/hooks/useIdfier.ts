@@ -23,7 +23,7 @@ interface IdfierUser {
 
 interface IdfierSession {
   referenceId: string;
-  status: "pending" | "started" | "scanned" | "approved" | "expired" | "failed";
+  status: "pending" | "started" | "scanned" | "approved" | "expired" | "failed" | "denied";
   expiresAt: string;
   createdAt: string;
 }
@@ -175,7 +175,7 @@ export const useIdfier = () => {
           }
 
           // Check for denied status (if it exists in the response)
-          if ((result.session.status as any) === "denied") {
+          if (result.session.status === "denied") {
             onStatusChange?.("denied");
             return;
           }

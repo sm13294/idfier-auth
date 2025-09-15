@@ -1,15 +1,15 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { IdfierService } from "@/lib/services/idfier";
 
 // Validate environment variables
 const requiredEnvVars = {
   IDFIER_CLIENT_ID: process.env.IDFIER_CLIENT_ID,
   IDFIER_CLIENT_SECRET: process.env.IDFIER_CLIENT_SECRET,
-  IDFIER_BASE_URL: process.env.IDFIER_BASE_URL,
+  IDFIER_API_BASE_URL: process.env.IDFIER_API_BASE_URL,
 };
 
 const missingEnvVars = Object.entries(requiredEnvVars)
-  .filter(([_, value]) => !value)
+  .filter(([value]) => !value)
   .map(([key]) => key);
 
 if (missingEnvVars.length > 0) {
@@ -19,10 +19,10 @@ if (missingEnvVars.length > 0) {
 const idfierService = new IdfierService({
   clientId: requiredEnvVars.IDFIER_CLIENT_ID!,
   clientSecret: requiredEnvVars.IDFIER_CLIENT_SECRET!,
-  baseUrl: requiredEnvVars.IDFIER_BASE_URL!,
+  baseUrl: requiredEnvVars.IDFIER_API_BASE_URL!,
 });
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   try {
     if (missingEnvVars.length > 0) {
       return NextResponse.json(
@@ -37,9 +37,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Përdorim konfigurimin e serverit në vend të input-it të përdoruesit
-    const webHookUrl = `${
-      process.env.NEXTAUTH_URL || "http://localhost:3000"
-    }/api/auth/callback`;
+    const webHookUrl = `${process.env.NEXTAUTH_URL || "http://localhost:3000"
+      }/api/auth/callback`;
     const webSecret = process.env.IDFIER_WEB_SECRET || "default-web-secret";
 
     const result = await idfierService.createLoginRequest({

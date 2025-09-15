@@ -6,14 +6,14 @@ import { IdfierQRCode } from "@/lib/services/IdfierQRCode";
 interface IdfierLoginModalProps {
   isOpen: boolean;
   status:
-    | "idle"
-    | "loading"
-    | "pending"
-    | "started"
-    | "scanned"
-    | "success"
-    | "error"
-    | "denied";
+  | "idle"
+  | "loading"
+  | "pending"
+  | "started"
+  | "scanned"
+  | "success"
+  | "error"
+  | "denied";
   currentQRData: string;
   qrCodeData: {
     qrReferenceSecret: string;
@@ -28,7 +28,6 @@ interface IdfierLoginModalProps {
 export default function IdfierLoginModal({
   isOpen,
   status,
-  currentQRData,
   qrCodeData,
   apiError,
   onClose,
@@ -45,7 +44,7 @@ export default function IdfierLoginModal({
           qrCodeData.qrReferenceSecret,
           qrCodeData.createdAt,
           qrCodeData.referenceId,
-          (qrData: string, completeQR: string) => {
+          () => {
             // Note: currentQRData is managed by parent component
           }
         );
