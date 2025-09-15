@@ -19,6 +19,7 @@ interface IdfierLoginModalProps {
     qrReferenceSecret: string;
     createdAt: string | Date;
     referenceId: string;
+    deepLink: string | null;
   } | null;
   apiError: string | null;
   onClose: () => void;
@@ -28,6 +29,7 @@ interface IdfierLoginModalProps {
 export default function IdfierLoginModal({
   isOpen,
   status,
+  currentQRData,
   qrCodeData,
   apiError,
   onClose,
@@ -134,7 +136,7 @@ export default function IdfierLoginModal({
             <>
               <h3 className="text-xl font-bold text-gray-900">Scan QR Code</h3>
               <p className="text-gray-600">
-                Use the Idfier app to scan this code
+                Use the IDfier app to scan this code
               </p>
               <div
                 ref={qrContainerRef}
@@ -170,18 +172,23 @@ export default function IdfierLoginModal({
               >
                 <svg
                   className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                  fill="white"
+                  viewBox="0 0 148 148"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M54.5507 1.49344C29.8072 6.38515 9.45849 23.5056 0.0612554 46.2968H24.59C26.6984 42.6535 29.2076 39.2465 32.1027 36.1758V111.368C29.4275 108.838 27.0207 106.051 24.9441 103.048H0C9.36986 125.913 29.7533 143.098 54.5507 148L54.5676 134.202C54.5507 134.197 54.4999 43.0969 54.4999 124.343V17.335C54.4999 53.3644 54.483 10.8061 54.4999 10.8012L54.5507 1.49344Z"
+                  />
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M87.1548 1.2754C82.6786 0.43794 78.0617 0 73.3426 0C70.439 0 67.5741 0.165788 64.7569 0.488414V122.183L64.8425 121.876L90.5354 147.574L90.8231 147.286C123.622 139.416 148 109.891 148 74.6722C148 54.2587 139.81 35.7584 126.538 22.2789L111.903 36.9165C120.597 46.4069 126.385 60.0338 125.916 78.0324C123.729 98.1577 112.208 113.615 96.0746 121.306L87.1542 112.384V21.9558L87.1556 21.9562L87.1548 1.2754Z"
                   />
                 </svg>
-                <span>Login with Idfier</span>
+                {/* add padding left */}
+                <span className="pl-2">Login with Idfier</span>
               </button>
             </>
           )}

@@ -35,6 +35,7 @@ export function useIdfierAuth() {
     qrReferenceSecret: string;
     createdAt: string | Date;
     referenceId: string;
+    deepLink: string | null;
   } | null>(null);
   const [apiError, setApiError] = useState<string | null>(null);
 

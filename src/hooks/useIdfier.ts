@@ -130,7 +130,7 @@ export const useIdfier = () => {
       onError?: (error: string) => void,
       interval: number = 2000, // 2 seconds for more responsive UI
       maxAttempts: number = 150, // 5 minutes max
-      shouldContinue?: () => boolean // Function to check if polling should continue
+      // shouldContinue?: () => boolean // Function to check if polling should continue
     ): Promise<() => void> => {
       // Stop any existing polling
       if (activePollingRef.current) {

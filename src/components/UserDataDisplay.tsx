@@ -43,7 +43,7 @@ export default function UserDataDisplay({
               Authentication Complete!
             </h1>
             <p className="text-green-100 text-xl ">
-              Your data has been verified successfully
+              The login with IDfier was successful.
             </p>
           </div>
         </div>
@@ -206,7 +206,7 @@ export default function UserDataDisplay({
               <span>Login Again</span>
             </button>
 
-            <button
+            {/* <button
               onClick={() => window.print()}
               className="px-10 py-4 cursor-pointer bg-gray-600 hover:bg-gray-700 text-white rounded-2xl font-bold text-lg flex items-center justify-center space-x-3"
             >
@@ -224,7 +224,7 @@ export default function UserDataDisplay({
                 />
               </svg>
               <span>Print</span>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
