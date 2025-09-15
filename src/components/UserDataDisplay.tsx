@@ -20,40 +20,40 @@ export default function UserDataDisplay({
 }: UserDataDisplayProps) {
   return (
     <div className="max-w-6xl w-full mx-auto px-4">
-      <div className="bg-white rounded-3xl shadow-2xl overflow-hidden animate-fade-in">
+      <div className="bg-white rounded-3xl shadow-2xl overflow-hidde">
         {/* Success Header */}
         <div className="bg-gradient-to-br from-green-500 via-emerald-600 to-teal-600 p-12 text-white text-center relative overflow-hidden">
           {/* Background decoration */}
           <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-emerald-400/20"></div>
           <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
-            <div className="absolute top-20 right-20 w-16 h-16 bg-white/5 rounded-full animate-pulse delay-1000"></div>
-            <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-white/10 rounded-full animate-pulse delay-2000"></div>
+            <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full"></div>
+            <div className="absolute top-20 right-20 w-16 h-16 bg-white/5 rounded-full "></div>
+            <div className="absolute bottom-10 left-1/4 w-12 h-12 bg-white/10 rounded-full "></div>
           </div>
 
           <div className="relative z-10">
-            <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce overflow-hidden">
+            <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6  overflow-hidden">
               <img
                 src="/icon.png"
                 alt="Idfier Logo"
                 className="w-24 h-24 object-cover"
               />
             </div>
-            <h1 className="text-4xl font-bold mb-3 animate-slide-up">
+            <h1 className="text-4xl font-bold mb-3 ">
               Authentication Complete!
             </h1>
-            <p className="text-green-100 text-xl animate-slide-up delay-200">
+            <p className="text-green-100 text-xl ">
               Your data has been verified successfully
             </p>
           </div>
         </div>
 
         {/* User Data Cards */}
-        <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="p-6 bg-gray-50">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-full">
-            <div className="group bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-100 rounded-2xl p-6 border border-blue-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 animate-fade-in-up flex flex-col h-full">
+            <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm flex flex-col h-full">
               <div className="flex items-center space-x-3 mb-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                   <svg
                     className="w-6 h-6 text-white"
                     fill="none"
@@ -68,18 +68,18 @@ export default function UserDataDisplay({
                     />
                   </svg>
                 </div>
-                <label className="text-xs font-bold text-blue-800 uppercase tracking-wide">
+                <label className="text-xs font-bold text-gray-600 uppercase tracking-wide">
                   Full Name
                 </label>
               </div>
-              <p className="text-lg font-bold text-gray-900 group-hover:text-blue-900 transition-colors duration-300 break-words flex-grow">
+              <p className="text-lg font-bold text-gray-900 break-words flex-grow">
                 {userData.fullname}
               </p>
             </div>
 
-            <div className="group bg-gradient-to-br from-purple-50 via-purple-100 to-pink-100 rounded-2xl p-6 border border-purple-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 animate-fade-in-up delay-100 flex flex-col h-full">
+            <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm flex flex-col h-full">
               <div className="flex items-center space-x-3 mb-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                   <svg
                     className="w-6 h-6 text-white"
                     fill="none"
@@ -94,18 +94,18 @@ export default function UserDataDisplay({
                     />
                   </svg>
                 </div>
-                <label className="text-xs font-bold text-purple-800 uppercase tracking-wide">
+                <label className="text-xs font-bold text-gray-600 uppercase tracking-wide">
                   Handle
                 </label>
               </div>
-              <p className="text-lg font-bold text-gray-900 group-hover:text-purple-900 transition-colors duration-300 break-words flex-grow">
+              <p className="text-lg font-bold text-gray-900 break-words flex-grow">
                 @{userData.handle}
               </p>
             </div>
 
-            <div className="group bg-gradient-to-br from-green-50 via-green-100 to-emerald-100 rounded-2xl p-6 border border-green-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 animate-fade-in-up delay-200 flex flex-col h-full">
+            <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm flex flex-col h-full">
               <div className="flex items-center space-x-3 mb-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                   <svg
                     className="w-6 h-6 text-white"
                     fill="none"
@@ -120,18 +120,18 @@ export default function UserDataDisplay({
                     />
                   </svg>
                 </div>
-                <label className="text-xs font-bold text-green-800 uppercase tracking-wide">
+                <label className="text-xs font-bold text-gray-600 uppercase tracking-wide">
                   Personal Number
                 </label>
               </div>
-              <p className="text-lg font-bold text-gray-900 font-mono group-hover:text-green-900 transition-colors duration-300 break-words flex-grow">
+              <p className="text-lg font-bold text-gray-900 font-mono break-words flex-grow">
                 {userData.personalNo}
               </p>
             </div>
 
-            <div className="group bg-gradient-to-br from-orange-50 via-orange-100 to-amber-100 rounded-2xl p-6 border border-orange-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 animate-fade-in-up delay-300 flex flex-col h-full">
+            <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm flex flex-col h-full">
               <div className="flex items-center space-x-3 mb-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                   <svg
                     className="w-6 h-6 text-white"
                     fill="none"
@@ -146,20 +146,20 @@ export default function UserDataDisplay({
                     />
                   </svg>
                 </div>
-                <label className="text-xs font-bold text-orange-800 uppercase tracking-wide">
+                <label className="text-xs font-bold text-gray-600 uppercase tracking-wide">
                   Country
                 </label>
               </div>
-              <p className="text-lg font-bold text-gray-900 group-hover:text-orange-900 transition-colors duration-300 break-words flex-grow">
+              <p className="text-lg font-bold text-gray-900 break-words flex-grow">
                 {userData.country}
               </p>
             </div>
 
-            <div className="group bg-gradient-to-br from-pink-50 via-pink-100 to-rose-100 rounded-3xl p-8 border border-pink-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 animate-fade-in-up delay-500">
-              <div className="flex items-center space-x-4 mb-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm flex flex-col h-full">
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                   <svg
-                    className="w-7 h-7 text-white"
+                    className="w-6 h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -172,38 +172,12 @@ export default function UserDataDisplay({
                     />
                   </svg>
                 </div>
-                <label className="text-sm font-bold text-pink-800 uppercase tracking-wide">
+                <label className="text-xs font-bold text-gray-600 uppercase tracking-wide">
                   Date of Birth
                 </label>
               </div>
-              <p className="text-2xl font-bold text-gray-900 group-hover:text-pink-900 transition-colors duration-300">
+              <p className="text-lg font-bold text-gray-900 break-words flex-grow">
                 {userData.dateOfBirth}
-              </p>
-            </div>
-
-            <div className="group bg-gradient-to-br from-indigo-50 via-indigo-100 to-blue-100 rounded-3xl p-8 border border-indigo-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 animate-fade-in-up delay-700">
-              <div className="flex items-center space-x-4 mb-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <svg
-                    className="w-7 h-7 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                    />
-                  </svg>
-                </div>
-                <label className="text-sm font-bold text-indigo-800 uppercase tracking-wide">
-                  Authentication Method
-                </label>
-              </div>
-              <p className="text-2xl font-bold text-gray-900 group-hover:text-indigo-900 transition-colors duration-300">
-                ID: {userData.authMethodId}
               </p>
             </div>
           </div>
@@ -214,11 +188,10 @@ export default function UserDataDisplay({
           <div className="flex flex-col sm:flex-row gap-4">
             <button
               onClick={onLogout}
-              className="group px-10 py-4 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3 relative overflow-hidden"
+              className="px-10 cursor-pointer py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-bold text-lg flex items-center justify-center space-x-3"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <svg
-                className="w-6 h-6 relative z-10 group-hover:rotate-180 transition-transform duration-300"
+                className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -230,16 +203,15 @@ export default function UserDataDisplay({
                   d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
                 />
               </svg>
-              <span className="relative z-10">Login Again</span>
+              <span>Login Again</span>
             </button>
 
             <button
               onClick={() => window.print()}
-              className="group px-10 py-4 bg-gradient-to-r from-gray-500 to-gray-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3 relative overflow-hidden"
+              className="px-10 py-4 cursor-pointer bg-gray-600 hover:bg-gray-700 text-white rounded-2xl font-bold text-lg flex items-center justify-center space-x-3"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <svg
-                className="w-6 h-6 relative z-10 group-hover:scale-110 transition-transform duration-300"
+                className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -251,7 +223,7 @@ export default function UserDataDisplay({
                   d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
                 />
               </svg>
-              <span className="relative z-10">Print</span>
+              <span>Print</span>
             </button>
           </div>
         </div>

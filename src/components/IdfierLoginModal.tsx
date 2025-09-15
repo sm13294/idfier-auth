@@ -71,7 +71,7 @@ export default function IdfierLoginModal({
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-6 text-white text-center relative">
+        <div className="bg-blue-600 p-6 text-white text-center relative">
           <div className="flex items-center justify-center mb-4">
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center overflow-hidden">
               <img
@@ -140,9 +140,49 @@ export default function IdfierLoginModal({
                 ref={qrContainerRef}
                 className="w-64 h-64 bg-white border-4 border-gray-200 rounded-2xl flex items-center justify-center shadow-lg"
               />
-              <span className="text-sm text-green-600 font-semibold">
-                Ready for scanning
-              </span>
+
+              <p className="text-sm text-gray-600 font-semibold">Or</p>
+
+              {/* Debug info - remove this in production */}
+              <button
+                onClick={() => {
+                  if (qrCodeData && qrCodeData.deepLink) {
+                    console.log("Using API deep link:", qrCodeData.deepLink);
+                    window.open(qrCodeData.deepLink, "_blank");
+                  } else if (
+                    currentQRData &&
+                    currentQRData !== "Generating..." &&
+                    !currentQRData.includes("Error")
+                  ) {
+                    const deepLinkUrl = `idfier://auth?authData=${encodeURIComponent(
+                      currentQRData
+                    )}`;
+                    console.log("Using constructed deep link:", deepLinkUrl);
+                    window.open(deepLinkUrl, "_blank");
+                  } else {
+                    console.log("No valid deep link available");
+                    alert(
+                      "Deep link not available yet. Please wait for QR code to generate."
+                    );
+                  }
+                }}
+                className="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-xl font-semibold flex items-center justify-center "
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"
+                  />
+                </svg>
+                <span>Login with Idfier</span>
+              </button>
             </>
           )}
 
